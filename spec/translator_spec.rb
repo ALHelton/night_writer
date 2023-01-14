@@ -12,4 +12,11 @@ RSpec.describe Translator do
       expect(translator.message).to eq("H")
     end
   end
+
+  describe "#translate_letter" do
+    it "translates english letter to braille" do  
+
+      expect(translator.translate_letter("H")).to eq("0.\n00\n..")
+    end
+  end
 end
