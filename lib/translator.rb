@@ -9,7 +9,7 @@ include Dictionary
 
   def translate_letter(message)
     # require 'pry'; binding.pry
-    DICTIONARY[message.to_sym]
+    DICTIONARY[message.downcase.to_sym]
   end
   
 end
