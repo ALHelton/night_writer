@@ -5,5 +5,5 @@ module Dictionary
   {
     H: "0.\n00\n.."
   }
-  
+
 end
