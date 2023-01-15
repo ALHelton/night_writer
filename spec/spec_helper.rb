@@ -3,5 +3,4 @@ SimpleCov.start
 
 require './lib/dictionary'
 require './lib/night_reader'
-require './lib/night_writer'
 require './lib/translator'
