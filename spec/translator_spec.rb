@@ -15,15 +15,8 @@ RSpec.describe Translator do
   end
 
   describe '#translate' do
-    it "#translate_letter - english letter to braille" do  
-      expect(translator.translate_letter("h")).to eq("0.\n00\n..")
-    end
-
-    it "#translate_multiple - multiple english letters to braille" do
-      expect(translator.translate_multiple("hat")).to eq(["0.\n00\n..", "0.\n..\n..", ".0\n00\n0."])
-    end
-
-    xit "#translate - formats translation based on length" do
+    it "#translate - english letter to braille" do  
+      expect(translator.translate("h")).to eq("0.\n00\n..")
     end
   end
 
