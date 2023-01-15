@@ -3,6 +3,7 @@ require './lib/translator'
 
 RSpec.describe Translator do
   let(:translator) { Translator.new("h") }
+  let(:translatorplus) { Translator.new("abc") }
 
   describe "#initialize" do
     it "exists" do
@@ -15,8 +16,12 @@ RSpec.describe Translator do
   end
 
   describe '#translate' do
-    it "#translate - english letter to braille" do  
+    it "translates english letter to braille" do  
       expect(translator.translate).to eq("0.\n00\n..")
+    end
+
+    it "translates multiple english letters to braille" do
+      expect(translatorplus.translate).to eq("0.\n..\n..0.\n0.\n..00\n..\n..")
     end
   end
 

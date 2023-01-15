@@ -11,4 +11,5 @@ include Dictionary
     # require 'pry'; binding.pry
     DICTIONARY[@message.downcase.to_sym]
   end  
+
 end
