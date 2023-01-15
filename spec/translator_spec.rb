@@ -1,4 +1,4 @@
-require 'spec_helper'
+# require 'spec_helper'
 require './lib/translator'
 
 RSpec.describe Translator do
@@ -16,7 +16,7 @@ RSpec.describe Translator do
 
   describe '#translate' do
     it "#translate - english letter to braille" do  
-      expect(translator.translate("h")).to eq("0.\n00\n..")
+      expect(translator.translate).to eq("0.\n00\n..")
     end
   end
 
