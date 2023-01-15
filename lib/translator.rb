@@ -7,8 +7,8 @@ include Dictionary
     @message = message
   end
 
-  def translate_letter(message)
-    DICTIONARY[message.upcase.to_sym]
-  end
-  
+  def translate
+    # require 'pry'; binding.pry
+    DICTIONARY[@message.downcase.to_sym]
+  end  
 end

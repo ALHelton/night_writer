@@ -1,4 +1,6 @@
 require 'simplecov'
 SimpleCov.start
 
-#here include require statements for all the other spec files
+require './lib/dictionary'
+require './lib/night_reader'
+require './lib/translator'

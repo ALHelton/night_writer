@@ -1,15 +1,12 @@
 require_relative './translator'
 
-handle = File.open(ARGV[0], "r")
+input_file = File.open(ARGV[0], "r")
+message = input_file.read.strip
 
-incoming_text = handle.read
-handle.close
+translator = Translator.new(message)
+translated_message = translator.translate
 
-# puts incoming_text
+output = File.open(ARGV[1], "w")
+output.write(translated_message)
 
-incoming = Translator.new(incoming_text).translate_letter(incoming_text)
-
-
-writer = File.open(ARGV[1], "w")
-writer.write(incoming)
-writer.close
+puts "Created '#{ARGV[1]}' containing #{message.length} characters"
