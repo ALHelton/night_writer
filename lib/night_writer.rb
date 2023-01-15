@@ -8,7 +8,7 @@ incoming_text = handle.read
 
 # handle.close
 
-incoming = Translator.new(incoming_text).translate_letter(incoming_text)
+incoming = Translator.new(incoming_text).translate_multiple(incoming_text)
 
 writer = File.open(ARGV[1], "w")
 writer.write(incoming)
