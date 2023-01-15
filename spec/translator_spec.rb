@@ -19,4 +19,10 @@ RSpec.describe Translator do
       expect(translator.translate_letter("h")).to eq("0.\n00\n..")
     end
   end
+
+  describe "#translate_multiple" do
+    it "translates multiple english letters to braille" do  
+      expect(translator.translate_multiple("hat")).to eq(["0.\n00\n..", "0.\n..\n..", ".0\n00\n0."])
+    end
+  end
 end
