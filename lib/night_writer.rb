@@ -6,7 +6,7 @@ input_file = File.open(ARGV[0], "r")
 message = input_file.read.strip
 
 translator = Translator.new(message)
-translated_message = translator.translate
+translated_message = translator.reorder
 
 output = File.open(ARGV[1], "w")
 output.write(translated_message)
