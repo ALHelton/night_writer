@@ -30,4 +30,15 @@ RSpec.describe Translator do
     end
   end
 
+  describe "#reorder" do
+    it "takes translated letters and breaks them into 3 tiers" do
+      translatorultra.translate
+
+      tier1 = "0..0..000.0."
+      tier2 = "000....0.0.."
+      tier3 = "......000.00"
+      expect(translatorultra.reorder).to eq([tier1, tier2, tier3])
+    end
+  end
+
 end
