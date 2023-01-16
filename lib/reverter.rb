@@ -8,10 +8,23 @@ class Reverter
   end
 
   def revert
-    DICTIONARY[@braille]
+    single_letters = []
+    until @braille.empty?
+      single_letters << @braille.slice!(0...9)
+    end
+
+    formatted_letters = []
+    single_letters.each do |letter|
+      if letter.size > 8
+        formatted_letters << letter.chop
+      else
+        formatted_letters << letter
+      end
+    end
+
+    formatted_letters.map do |letter|
+      DICTIONARY[letter]
+    end.join("")
   end
 
-      # @braille.split("\n").each do |character|
-    # end 
-    # split every third \n
 end
