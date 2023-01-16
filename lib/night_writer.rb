@@ -1,3 +1,5 @@
+# ruby lib/night_writer.rb message.txt braille.txt
+
 require_relative './translator'
 
 input_file = File.open(ARGV[0], "r")

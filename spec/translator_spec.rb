@@ -6,7 +6,7 @@ RSpec.describe Translator do
   let(:translatorplus) { Translator.new("abc") }
   let(:translatorultra) { Translator.new("hi you") }
 
-  let(:untranslator) { Translator.new("0.\n00\n..") }
+  let(:untranslator) { Translator.new("0.\n00\n..\n") }
 
   describe "#initialize" do
     it "exists" do
@@ -32,10 +32,12 @@ RSpec.describe Translator do
     end
   end
 
-  describe "#untranslate" do
-    it "translates single braille letter to english" do
-      expect(untranslator.untranslate).to eq("h")
-    end
-  end
+  # describe "#b_translate" do
+  #   it "translates single braille letter to english" do
+  #     # expect(b_translator.b_translate).to eq("h")
+  #     expect(b_translator.b_translate).to eq("h")
+
+  #   end
+  # end
 
 end

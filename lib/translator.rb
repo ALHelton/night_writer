@@ -17,4 +17,10 @@ include Dictionary
     end.join("\n")
   end
 
+  # def b_translate
+  #   @message.scan(/.{8}/).each do |character|
+  #     require 'pry'; binding.pry
+  #   end
+  # end
+
 end
