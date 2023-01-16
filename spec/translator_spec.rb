@@ -30,14 +30,14 @@ RSpec.describe Translator do
     end
   end
 
-  describe "#formatted_translate" do
+  describe "#reformat" do
     it "takes translated letters and breaks them into 3 tiers" do
       translatorultra.translate
 
-      tier1 = "0..0..000.0."
-      tier2 = "000....0.0.."
-      tier3 = "......000.00"
-      expect(translatorultra.formatted_translate).to eq([tier1, tier2, tier3])
+      tier1 =   "0..0..000.0."
+      tier2 = "\n000....0.0.."
+      tier3 = "\n......000.00"
+      expect(translatorultra.reformat).to eq([tier1, tier2, tier3])
     end
   end
 

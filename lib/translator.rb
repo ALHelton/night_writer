@@ -17,10 +17,10 @@ include Dictionary
     end
   end
 
-  def formatted_translate
+  def reformat
     tier1 = [].join
-    tier2 = [].join
-    tier3 = [].join
+    tier2 = [].join.concat("\n")
+    tier3 = [].join.concat("\n")
     translate.map do |letter|
       divided = letter.split("\n")
       tier1 << divided[0]
@@ -31,7 +31,6 @@ include Dictionary
     all_tiers << tier1
     all_tiers << tier2
     all_tiers << tier3
-    nested_tiers = all_tiers.combination(1).to_a
-    nested_tiers.transpose.flatten
+    all_tiers
   end
 end
