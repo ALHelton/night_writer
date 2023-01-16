@@ -33,7 +33,7 @@ include Dictionary
     all_tiers << tier3
     all_tiers
   end
-
+  
   def translate
     reformat.join
   end
