@@ -1,14 +1,14 @@
 # ruby ./lib/night_reader.rb braille.txt original_message.txt
 
-require_relative './translator'
+require_relative './reverter'
 
-input_file = File.open(ARGV[0], "r")
-message = input_file.read.strip
+braille_file = File.open(ARGV[0], "r")
+message = braille_file.read.strip
 
-translator = Translator.new(message)
-translated_message = translator
+reverter = Reverter.new(message)
+reverted_message = reverter.revert
 
 output = File.open(ARGV[1], "w")
-output.write(translated_message)
+output.write(reverted_message)
 
-puts "Created '#{ARGV[1]}' containing #{message.length} characters"
+puts "Created '#{ARGV[1]}' containing #{reverted_message.length} characters"
