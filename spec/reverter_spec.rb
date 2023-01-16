@@ -13,4 +13,10 @@ RSpec.describe Reverter do
       expect(reverter.braille).to eq("0.\n00\n..")
     end
   end
+
+  describe "#revert" do
+    it "translates a single Braille letter back to English" do
+      expect(reverter.revert).to eq("h")
+    end
+  end
 end
