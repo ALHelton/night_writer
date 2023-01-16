@@ -10,4 +10,8 @@ class Reverter
   def revert
     DICTIONARY[@braille]
   end
+
+      # @braille.split("\n").each do |character|
+    # end 
+    # split every third \n
 end
