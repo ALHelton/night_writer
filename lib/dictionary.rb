@@ -28,7 +28,8 @@ module Dictionary
     w: ".0\n00\n.0",
     x: "00\n..\n00",
     y: "00\n.0\n00",
-    z: "0.\n.0\n00"
+    z: "0.\n.0\n00",
+    space: "..\n..\n.."
   }
 
 end
