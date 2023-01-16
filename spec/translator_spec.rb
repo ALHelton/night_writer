@@ -26,7 +26,8 @@ RSpec.describe Translator do
     end
 
     it "#space_converter" do
-      expect(translatorultra.translate)to eq("0.\n00\n..\n.0\n0.\n..\n..\n..\n..\n00\n.0\n00\n0.\n.0\n0.\n0.\n..\n00")
+      translatorultra.space_converter
+      expect(translatorultra.translate).to eq("0.\n00\n..\n.0\n0.\n..\n..\n..\n..\n00\n.0\n00\n0.\n.0\n0.\n0.\n..\n00")
     end
   end
 
