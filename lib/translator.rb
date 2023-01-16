@@ -17,7 +17,7 @@ include Dictionary
     end
   end
 
-  def reorder
+  def formatted_translate
     tier1 = [].join
     tier2 = [].join
     tier3 = [].join
