@@ -41,4 +41,10 @@ RSpec.describe Translator do
     end
   end
 
+  describe "#translate" do
+    it "takes new translated strings and joins them together" do
+      expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00")
+    end
+  end
+
 end
