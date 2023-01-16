@@ -8,8 +8,6 @@ class Reverter
   end
 
   def revert
-    # @braille.split("\n").each do |character|
-    #   require 'pry'; binding.pry
-    # end 
+    DICTIONARY[@braille]
   end
 end
