@@ -6,6 +6,8 @@ RSpec.describe Translator do
   let(:translatorplus) { Translator.new("abc") }
   let(:translatorultra) { Translator.new("hi you") }
 
+  let(:untranslator) { Translator.new("0.\n00\n..") }
+
   describe "#initialize" do
     it "exists" do
       expect(translator).to be_an_instance_of(Translator)
@@ -16,7 +18,7 @@ RSpec.describe Translator do
     end
   end
 
-  describe '#translate' do
+  describe "#translate" do
     it "translates english letter to braille" do  
       expect(translator.translate).to eq("0.\n00\n..")
     end
@@ -27,6 +29,12 @@ RSpec.describe Translator do
 
     it "converts space characters to :space" do
       expect(translatorultra.translate).to eq("0.\n00\n..\n.0\n0.\n..\n..\n..\n..\n00\n.0\n00\n0.\n.0\n0.\n0.\n..\n00")
+    end
+  end
+
+  describe "#untranslate" do
+    it "translates single braille letter to english" do
+      expect(untranslator.untranslate).to eq("h")
     end
   end
 
