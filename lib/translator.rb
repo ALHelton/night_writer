@@ -7,7 +7,7 @@ include Dictionary
     @message = message
   end
 
-  def translate
+  def lookup
     @message.chars.map do |character|
       if character == " "
         DICTIONARY[:space]
@@ -21,7 +21,7 @@ include Dictionary
     tier1 = [].join
     tier2 = [].join.concat("\n")
     tier3 = [].join.concat("\n")
-    translate.map do |letter|
+    lookup.map do |letter|
       divided = letter.split("\n")
       tier1 << divided[0]
       tier2 << divided[1]
