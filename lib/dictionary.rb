@@ -3,6 +3,7 @@ module Dictionary
   DICTIONARY =
 
   {
+    # lowercase letters
     a: "0.\n..\n..",
     b: "0.\n0.\n..",
     c: "00\n..\n..",
@@ -29,6 +30,8 @@ module Dictionary
     x: "00\n..\n00",
     y: "00\n.0\n00",
     z: "0.\n.0\n00",
+
+    # special characters
     space: "..\n..\n.."
   }
 

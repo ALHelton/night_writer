@@ -7,7 +7,6 @@ include Dictionary
     @message = message
   end
 
-
   def translate
     @message.chars.map do |character|
       if character == " "
@@ -17,11 +16,5 @@ include Dictionary
       end
     end.join("\n")
   end
-  
-  # def translate
-  #   @message.chars.map do |character|
-  #     DICTIONARY[character.to_sym]
-  #   end.join("\n")
-  # end
 
 end
