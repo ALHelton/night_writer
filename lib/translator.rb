@@ -14,7 +14,25 @@ include Dictionary
       else
         DICTIONARY[character.to_sym]
       end
-    end.join("\n")
+    end
   end
+
+  # def translate
+  #   translated = @message.chars.map do |character|
+  #     if character == " "
+  #       DICTIONARY[:space].split("\n")
+  #     else
+  #       DICTIONARY[character.to_sym].split("\n")
+  #       require 'pry'; binding.pry
+  #     end
+
+  #     tier1 = translated[0]
+  #     tier2 = translated[1]
+  #     tier3 = translated[2]
+  #   end
+
+
+
+  # end
 
 end
