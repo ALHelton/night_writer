@@ -6,8 +6,6 @@ RSpec.describe Translator do
   let(:translatorplus) { Translator.new("abc") }
   let(:translatorultra) { Translator.new("hi you") }
 
-  let(:untranslator) { Translator.new("0.\n00\n..\n") }
-
   describe "#initialize" do
     it "exists" do
       expect(translator).to be_an_instance_of(Translator)
@@ -31,13 +29,5 @@ RSpec.describe Translator do
       expect(translatorultra.translate).to eq("0.\n00\n..\n.0\n0.\n..\n..\n..\n..\n00\n.0\n00\n0.\n.0\n0.\n0.\n..\n00")
     end
   end
-
-  # describe "#b_translate" do
-  #   it "translates single braille letter to english" do
-  #     # expect(b_translator.b_translate).to eq("h")
-  #     expect(b_translator.b_translate).to eq("h")
-
-  #   end
-  # end
 
 end
