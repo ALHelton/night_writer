@@ -21,7 +21,7 @@ RSpec.describe Translator do
     end
 
     it "translates multiple english letters to braille" do
-      expect(translatorplus.translate).to eq("0.\n..\n..0.\n0.\n..00\n..\n..")
+      expect(translatorplus.translate).to eq("0.\n..\n..\n0.\n0.\n..\n00\n..\n..")
     end
   end
 
