@@ -8,7 +8,13 @@ include Dictionary
   end
 
   def translate
-    # require 'pry'; binding.pry
-    DICTIONARY[@message.downcase.to_sym]
-  end  
+    @message.chars.map do |character|
+      if character == " "
+        DICTIONARY[:space]
+      else
+        DICTIONARY[character.to_sym]
+      end
+    end.join("\n")
+  end
+
 end
