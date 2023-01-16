@@ -5,6 +5,7 @@ class Reverter
   attr_reader :braille
   def initialize(braille)
     @braille = braille
+    # require 'pry'; binding.pry
   end
 
   def revert
