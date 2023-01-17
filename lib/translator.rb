@@ -24,6 +24,12 @@ include Dictionary
     end
   end
 
+  # def text_wrap
+  #   remaining = []
+  #   @message.chars.each_slice(80) do |slice|
+  #     require 'pry'; binding.pry
+  #   end
+  # end
 
 
   def lookup
@@ -36,11 +42,28 @@ include Dictionary
     end
   end
 
-  def reformat
+  def 
+    nested_letters = lookup.combination(1).to_a
+    nested_letters.each_slice(40) do |letter|
+
+      require 'pry'; binding.pry
+    end
+
+    while lookup.count < 40
+
+    end
+
+
+    divided = []
+    remaining = []
     tier1 = [].join
     tier2 = [].join.concat("\n")
     tier3 = [].join.concat("\n")
-    lookup.map do |letter|
+    lookup.each_with_index do |letter, index|
+      if index < 40
+
+      end
+      require 'pry'; binding.pry
       divided = letter.split("\n")
       # require 'pry'; binding.pry
       
@@ -57,20 +80,45 @@ include Dictionary
     all_tiers << tier3
     all_tiers
   end
+
+
+
+  # def reformat
+  #   tier1 = [].join
+  #   tier2 = [].join.concat("\n")
+  #   tier3 = [].join.concat("\n")
+  #   lookup.map do |letter|
+  #     divided = letter.split("\n")
+  #     # require 'pry'; binding.pry
+      
+  #     # range count (0..80)
+  #     #looping until empty?
+      
+  #     tier1 << divided[0]
+  #     tier2 << divided[1]
+  #     tier3 << divided[2] 
+  #   end
+  #   all_tiers = []
+  #   all_tiers << tier1
+  #   all_tiers << tier2
+  #   all_tiers << tier3
+  #   all_tiers
+  #   require 'pry'; binding.pry
+  # end
   
   def translate
     reformat.join
   end
 
-  def text_wrap
-    remaining = []
-    translate.chars.each_with_index do |char, index|
-      if index < 240
-        remaining << char
-      else
-        # require 'pry'; binding.pry
-      end
-    end
+  # def text_wrap
+  #   remaining = []
+  #   translate.chars.each_with_index do |char, index|
+  #     if index < 240
+  #       remaining << char
+  #     else
+  #       # require 'pry'; binding.pry
+  #     end
+  #   end
     # translate.chars.each do |character|
     #   require 'pry'; binding.pry
     #   if translate.chars.index(character) == 240
@@ -85,5 +133,5 @@ include Dictionary
     #   require 'pry'; binding.pry
     # end
 
-  end
+  # end
 end

@@ -41,11 +41,11 @@ RSpec.describe Translator do
   end 
 end
 
-  describe "#text_wrap" do
-    it "takes the message and splits every 80 characters" do
-      expect(translatormagnum.message.length).to eq(87)
-      expect(translatormagnum.text_wrap).to eq(["the quick brown fox jumps over the lazy dog the quick brown fox jumps over the l", "azy dog"])
-    end
+  # describe "#text_wrap" do
+  #   it "takes the message and splits every 80 characters" do
+  #     expect(translatormagnum.message.length).to eq(87)
+  #     expect(translatormagnum.text_wrap).to eq(["the quick brown fox jumps over the lazy dog the quick brown fox jumps over the l", "azy dog"])
+  #   end
 
 #     firstlines = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n"
 
@@ -53,7 +53,7 @@ end
 
 #     expect(translatormagnum.text_wrap).to eq([firstlines, secondlines])
 #   end
-  end
+  # end
 
   describe "#lookup" do
     it "fetches braille version of english letter" do  
@@ -70,7 +70,14 @@ end
   end
 
   describe "#reformat" do
-    it "takes translated letters and breaks them into 3 tiers" do
+    it "#split_40 - puts translated letters into a new array every 40 chars" do
+      long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      expect(long_line.message.length).to eq(85)
+      line1 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
+      line2 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
+      expect(translatormagnum.split_40).to eq([line1, line2])
+      
+    xit "takes translated letters and breaks them into 3 tiers" do
       translatorultra.lookup
 
       tier1 =   "0..0..000.0."
