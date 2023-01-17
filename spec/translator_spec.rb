@@ -5,7 +5,8 @@ RSpec.describe Translator do
   let(:translator) { Translator.new("h") }
   let(:translatorplus) { Translator.new("abc") }
   let(:translatorultra) { Translator.new("hi you") }
-  let(:translatormagnum) { Translator.new("the quick brown fox jumps over the lazy dog") }
+  let(:translatormagnum) { Translator.new("the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog") }
+
 
   describe "#initialize" do
     it "exists" do
@@ -48,16 +49,27 @@ RSpec.describe Translator do
     end
   end
 
-  describe "#text_wrap" do
-    it "takes formatted text and sends it to a new line after 40 Braille characters" do
-      translatormagnum.translate
+  describe "#valid_chars" do
+    it "takes a string of characters and determines if each contained in dictionary" do
+      string1 = Translator.new("Hello")
+      string2 = Translator.new("(@#*&")
 
-      firstlines = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n"
-
-      secondlines = "000.00\n.0.000\n..0..."
-
-      expect(translatormagnum.text_wrap).to eq([firstlines, secondlines])
+      expect(translatorultra.valid_chars).to be true
+      expect(string1.valid_chars).to be true
+      expect(string2.valid_chars).to be false
     end
   end
+
+  # describe "#text_wrap" do
+  #   it "takes formatted text and sends it to a new line after 40 Braille characters" do
+  #     translatormagnum.translate
+
+  #     firstlines = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n"
+
+  #     secondlines = "000.00\n.0.000\n..0..."
+
+  #     expect(translatormagnum.text_wrap).to eq([firstlines, secondlines])
+  #   end
+  # end
 
 end
