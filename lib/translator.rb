@@ -2,9 +2,11 @@ require_relative './dictionary'
 
 class Translator
 include Dictionary
-  attr_reader :message
+  attr_reader :message,
+              :valid_message
   def initialize(message)
     @message = message
+    @valid_message = valid_message
   end
 
   def valid_chars?
