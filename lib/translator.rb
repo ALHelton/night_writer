@@ -19,6 +19,12 @@ include Dictionary
     end
   end
 
+  def create_valid_message
+    if valid_chars?
+      @valid_message = message
+    end
+  end
+
   def lookup
     @message.chars.map do |character|
       # check if valid character
