@@ -42,18 +42,14 @@ include Dictionary
     end
   end
 
-  def split_40
-    nested_letters = lookup.combination(1).to_a
-    letter_groups = []
-    nested_letters.each_slice(40) do |group_40|
-      letter_groups << group_40.flatten
-    end
-    require 'pry'; binding.pry
-    letter_groups
-
-  end
-
-
+  # def split_40
+  #   nested_letters = lookup.combination(1).to_a
+  #   letter_groups = []
+  #   nested_letters.each_slice(40) do |group_40|
+  #     letter_groups << group_40.flatten
+  #   end
+  #   letter_groups
+  # end
 
   def reformat
     tier1 = [].join

@@ -70,17 +70,24 @@ end
   end
 
   describe "#reformat" do
-    it "#split_40 - puts translated letters into a new array every 40 chars" do
-      long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-      expect(long_line.message.length).to eq(85)
-      long_line.lookup
-      line1 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
-      line2 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
-      line3 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
-      expect(long_line.split_40).to eq([line1, line2, line3])
-    end
+    # it "#split_40 - puts translated letters into a new array every 40 chars" do
+    #   long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    #   expect(long_line.message.length).to eq(85)
+    #   long_line.lookup
+    #   line1 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
+    #   line2 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
+    #   line3 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
+    #   expect(long_line.split_40).to eq([line1, line2, line3])
+    # end
+
+    # it "takes array groups and breaks into 3 tiers of strings per letter" do
+    #   long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    #   long_line.lookup
+    #   long_line.split_40
+    #   expect(long_line.reformat).to eq("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.\n..........\n..........")
+    # end
       
-    xit "takes translated letters and breaks them into 3 tiers" do
+    it "takes translated letters and breaks them into 3 tiers" do
       translatorultra.lookup
 
       tier1 =   "0..0..000.0."
