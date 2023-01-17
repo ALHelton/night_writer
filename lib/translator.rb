@@ -37,4 +37,22 @@ include Dictionary
   def translate
     reformat.join
   end
+
+  def text_wrap
+    require 'pry'; binding.pry
+    # translate.chars.each do |character|
+    #   require 'pry'; binding.pry
+    #   if translate.chars.index(character) == 240
+    #     # translate.chars
+    #   end
+    # end
+
+
+
+    # if char_count > 240
+
+    #   require 'pry'; binding.pry
+    # end
+
+  end
 end
