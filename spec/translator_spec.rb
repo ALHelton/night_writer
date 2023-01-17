@@ -49,16 +49,17 @@ RSpec.describe Translator do
     end
   end
 
-  describe "#valid_chars" do
+  describe "#valid_chars?" do
     it "takes a string of characters and determines if each contained in dictionary" do
       string1 = Translator.new("Hello")
       string2 = Translator.new("(@#*&")
 
-      expect(translatorultra.valid_chars).to be true
-      expect(string1.valid_chars).to be true
-      expect(string2.valid_chars).to be false
+      expect(translatorultra.valid_chars?).to eq(true)
+      expect(string1.valid_chars?).to eq(true)
+      expect(string2.valid_chars?).to eq(false)
     end
   end
+  # re_enter = "Please re-enter message using only A-Z keys."
 
   # describe "#text_wrap" do
   #   it "takes formatted text and sends it to a new line after 40 Braille characters" do

@@ -7,10 +7,20 @@ include Dictionary
     @message = message
   end
 
+  def valid_chars?
+    @message.chars.each do |char|
+      if ('a'..'z').include?(char.downcase)
+        return true
+      else
+        return false
+      end
+    end
+  end
+
   def lookup
     @message.chars.map do |character|
       # check if valid character
-      require 'pry'; binding.pry
+      # require 'pry'; binding.pry
       if character == " "
         DICTIONARY[:space]
       else
