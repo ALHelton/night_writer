@@ -43,7 +43,7 @@ end
 
   describe "#text_wrap" do
     it "takes the message and splits every 80 characters" do
-      expect(translatormagnum.length).to eq(87)
+      expect(translatormagnum.message.length).to eq(87)
       expect(translatormagnum.text_wrap).to eq(["the quick brown fox jumps over the lazy dog the quick brown fox jumps over the l", "azy dog"])
     end
 
