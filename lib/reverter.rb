@@ -5,7 +5,6 @@ class Reverter
   attr_reader :braille
   def initialize(braille)
     @braille = braille
-    # require 'pry'; binding.pry
   end
 
   def lookup_format
@@ -25,10 +24,9 @@ class Reverter
     lookup_letters
   end
 
-  # def revert
-  #   formatted_letters.map do |letter|
-  #     DICTIONARY[letter]
-  #   end.join("")
-  # end
-
+  def revert
+    lookup_format.map do |character|
+      DICTIONARY[character]
+    end.join
+  end
 end
