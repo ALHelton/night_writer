@@ -51,8 +51,12 @@ include Dictionary
     all_tiers
   end
   
+  # def translate
+  #   reformat.join
+  # end
+
   def translate
-    reformat.join
+    text_wrap
   end
 
   def text_wrap
@@ -69,18 +73,16 @@ include Dictionary
       bottom_tiers << group_40.join
     end
     all_tiers = []
-
     all_tiers << top_tiers
     all_tiers << middle_tiers
     all_tiers << bottom_tiers
-
+    
     formatted_tiers = all_tiers.transpose
-
+    
     newline_tiers = formatted_tiers.map do |line|
       new_tiers = line.map do |tier|
-        tier + ("\n")
+        tier + "\n"
       end
-      
       new_tiers.join + "\n"
     end
     newline_tiers.join
