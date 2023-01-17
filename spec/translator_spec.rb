@@ -18,10 +18,12 @@ RSpec.describe Translator do
     end
   end
 
-  describe "#valid_message" do
+  describe "#create_valid_message" do
     it "creates a valid message if valid_chars? is true" do
       string1 = Translator.new("Hello")
       string2 = Translator.new("(@#*&")
+      string1.create_valid_message
+      string2.create_valid_message
       expect(string1.valid_message).to eq("Hello")
       expect(string2.valid_message).to eq(nil)
     end 
