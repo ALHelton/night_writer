@@ -27,4 +27,10 @@ RSpec.describe Reverter do
       expect(reverterplus.lookup_format).to eq(abcd)
     end
   end
+
+  describe "#revert" do
+    it "matches braille to english characters" do
+      expect(reverterultra.revert).to eq("hi you")
+    end
+  end
 end
