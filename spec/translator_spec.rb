@@ -19,6 +19,11 @@ RSpec.describe Translator do
   end
 
   describe "#lookup" do
+    it "if characters aren't valid, it returns a message to re-enter text" do
+      string2 = Translator.new("(@#*&")
+      expect(string2.lookup).to eq("Please re-enter message using only A-Z keys.")
+    end
+
     it "fetches braille version of english letter" do  
       expect(translator.lookup).to eq(["0.\n00\n.."])
     end
