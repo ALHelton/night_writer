@@ -2,11 +2,10 @@ require_relative './dictionary'
 
 class Translator
 include Dictionary
-  attr_reader :message,
-              :valid_message
+  attr_reader :message
+
   def initialize(message)
     @message = message
-    @valid_message = valid_message
   end
 
   def valid_chars?
@@ -19,9 +18,9 @@ include Dictionary
     end
   end
 
-  def create_valid_message
-    if valid_chars?
-      @valid_message = message
+  def valid_message
+    if valid_chars? != true
+      @message = "Please re-enter message using only A-Z keys."
     end
   end
 
