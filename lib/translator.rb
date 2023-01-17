@@ -56,7 +56,34 @@ include Dictionary
   end
 
   def text_wrap
-    
+    top_tiers = []
+    middle_tiers = []
+    bottom_tiers = []
+    reformat[0].chomp.scan(/.{2}/).each_slice(40) do |group_40|
+      top_tiers << group_40.join
+    end
+    reformat[1].chomp.scan(/.{2}/).each_slice(40) do |group_40|
+      middle_tiers << group_40.join
+    end
+    reformat[2].chomp.scan(/.{2}/).each_slice(40) do |group_40|
+      bottom_tiers << group_40.join
+    end
+    all_tiers = []
+
+    all_tiers << top_tiers
+    all_tiers << middle_tiers
+    all_tiers << bottom_tiers
+
+    formatted_tiers = all_tiers.transpose
+
+    newline_tiers = formatted_tiers.map do |line|
+      new_tiers = line.map do |tier|
+        tier + ("\n")
+      end
+      
+      new_tiers.join + "\n"
+    end
+    newline_tiers.join
   end
 end
 
