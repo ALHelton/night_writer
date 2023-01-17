@@ -3,7 +3,7 @@ require './lib/reverter'
 
 RSpec.describe Reverter do
   let(:reverter) { Reverter.new("0.\n00\n..") }
-  let(:reverterplus) { Reverter.new("0.0.00\n..0...\n......") }
+  let(:reverterplus) { Reverter.new("0.0.0000\n..0....0\n........") }
   let(:reverterultra) { Reverter.new("0..0..000.0.\n000....0.0..\n......000.00") }
 
   describe "#initialize" do
@@ -16,17 +16,15 @@ RSpec.describe Reverter do
     end
   end
 
-  describe "#revert" do
-    it "translates a single Braille letter back to English" do
-      expect(reverter.revert).to eq("h")
+  describe "#lookup_format" do
+    it "translates a single Braille letter to dictionary format" do
+      h = ["0.\n00\n.."]
+      expect(reverter.lookup_format).to eq(h)
     end
 
-    it "translates multiple Braille letters back to English" do
-      expect(reverterplus.revert).to eq("abc")
-    end
-
-    xit "translates multiple braille words back to English" do
-      expect(reverterultra.revert).to eq("hi you")
+    it "translates multiple Braille letters/words to dictionary format" do
+      abcd = ["0.\n..\n..", "0.\n0.\n..", "00\n..\n..", "00\n.0\n.."]
+      expect(reverterplus.lookup_format).to eq(abcd)
     end
   end
 end
