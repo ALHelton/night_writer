@@ -81,31 +81,3 @@ end
   end
 
 end
-
-    # --------------------------- TEXT WRAPPING ---------------------------
-    # it "#split_40 - puts translated letters into a new array every 40 chars" do
-    #   long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    #   expect(long_line.message.length).to eq(85)
-    #   long_line.lookup
-    #   line1 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
-    #   line2 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
-    #   line3 = ["0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n..", "0.\n..\n.."]
-    #   expect(long_line.split_40).to eq([line1, line2, line3])
-    # end
-
-    # it "takes array groups and breaks into 3 tiers of strings per letter" do
-    #   long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    #   long_line.lookup
-    #   long_line.split_40
-    #   expect(long_line.reformat).to eq("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.\n..........\n..........")
-    # end
-
-    # Pseudocode:
-    # (#split_40 started in translator.rb)
-    # instead of wrapping at the end after characters have already been put together, 
-    # splits up each character into groups of 40
-    # loops through each group and puts every letter up to 40 - top tier in the string first, \n, middle, \n, bottom
-    # then separates the next group of 40 with \n\n and does the same
-    # separates following groups the same until the array of all groups is empty
-
-    # Code is currently working as is, and both translate functions would need to be re-written in order to do this
