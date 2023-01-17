@@ -24,14 +24,6 @@ include Dictionary
     end
   end
 
-  # def text_wrap
-  #   remaining = []
-  #   @message.chars.each_slice(80) do |slice|
-  #     require 'pry'; binding.pry
-  #   end
-  # end
-
-
   def lookup
     @message.chars.map do |character|
       if character == " "
@@ -42,26 +34,12 @@ include Dictionary
     end
   end
 
-  # def split_40
-  #   nested_letters = lookup.combination(1).to_a
-  #   letter_groups = []
-  #   nested_letters.each_slice(40) do |group_40|
-  #     letter_groups << group_40.flatten
-  #   end
-  #   letter_groups
-  # end
-
   def reformat
     tier1 = [].join
     tier2 = [].join.concat("\n")
     tier3 = [].join.concat("\n")
     lookup.map do |letter|
       divided = letter.split("\n")
-      # require 'pry'; binding.pry
-      
-      # range count (0..80)
-      #looping until empty?
-      
       tier1 << divided[0]
       tier2 << divided[1]
       tier3 << divided[2] 
@@ -77,28 +55,19 @@ include Dictionary
     reformat.join
   end
 
-  # def text_wrap
-  #   remaining = []
-  #   translate.chars.each_with_index do |char, index|
-  #     if index < 240
-  #       remaining << char
-  #     else
-  #       # require 'pry'; binding.pry
-  #     end
-  #   end
-    # translate.chars.each do |character|
-    #   require 'pry'; binding.pry
-    #   if translate.chars.index(character) == 240
-    #     # translate.chars
-    #   end
-    # end
-
-
-
-    # if char_count > 240
-
-    #   require 'pry'; binding.pry
-    # end
-
-  # end
+  def text_wrap
+    
+  end
 end
+
+
+  # ------------- TEXT WRAPPING -------------
+  # def split_40
+  #   nested_letters = lookup.combination(1).to_a
+  #   letter_groups = []
+  #   nested_letters.each_slice(40) do |group_40|
+  #     letter_groups << group_40.flatten
+  #   end
+  #   letter_groups
+  # end
+  # -----------------------------------------

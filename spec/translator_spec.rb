@@ -41,20 +41,6 @@ RSpec.describe Translator do
   end 
 end
 
-  # describe "#text_wrap" do
-  #   it "takes the message and splits every 80 characters" do
-  #     expect(translatormagnum.message.length).to eq(87)
-  #     expect(translatormagnum.text_wrap).to eq(["the quick brown fox jumps over the lazy dog the quick brown fox jumps over the l", "azy dog"])
-  #   end
-
-#     firstlines = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n"
-
-#     secondlines = "000.00\n.0.000\n..0..."
-
-#     expect(translatormagnum.text_wrap).to eq([firstlines, secondlines])
-#   end
-  # end
-
   describe "#lookup" do
     it "fetches braille version of english letter" do  
       expect(translator.lookup).to eq(["0.\n00\n.."])
@@ -70,6 +56,33 @@ end
   end
 
   describe "#reformat" do
+    it "takes translated letters and breaks them into 3 tiers" do
+      translatorultra.lookup
+      tier1 =   "0..0..000.0."
+      tier2 = "\n000....0.0.."
+      tier3 = "\n......000.00"
+      expect(translatorultra.reformat).to eq([tier1, tier2, tier3])
+    end
+  end
+
+  describe "#translate" do
+    it "takes new translated strings and joins them together" do
+      expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00")
+    end
+  end
+
+
+  describe "#text_wrap" do
+    it "takes the translated message and splits every 80 characters" do
+      long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      expect(long_line.message.length).to eq(85)
+      expect(long_line.text_wrap).to eq("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.\n..........\n..........")
+    end
+  end
+
+end
+
+    # --------------------------- TEXT WRAPPING ---------------------------
     # it "#split_40 - puts translated letters into a new array every 40 chars" do
     #   long_line = Translator.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     #   expect(long_line.message.length).to eq(85)
@@ -86,20 +99,13 @@ end
     #   long_line.split_40
     #   expect(long_line.reformat).to eq("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.\n..........\n..........")
     # end
-      
-    it "takes translated letters and breaks them into 3 tiers" do
-      translatorultra.lookup
 
-      tier1 =   "0..0..000.0."
-      tier2 = "\n000....0.0.."
-      tier3 = "\n......000.00"
-      expect(translatorultra.reformat).to eq([tier1, tier2, tier3])
-    end
-  end
+    # Pseudocode:
+    # (#split_40 started in translator.rb)
+    # instead of wrapping at the end after characters have already been put together, 
+    # splits up each character into groups of 40
+    # loops through each group and puts every letter up to 40 - top tier in the string first, \n, middle, \n, bottom
+    # then separates the next group of 40 with \n\n and does the same
+    # separates following groups the same until the array of all groups is empty
 
-  describe "#translate" do
-    it "takes new translated strings and joins them together" do
-      expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00")
-    end
-  end
-end
+    # Code is currently working as is, and both translate functions would need to be re-written in order to do this

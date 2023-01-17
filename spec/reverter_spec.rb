@@ -30,7 +30,7 @@ RSpec.describe Reverter do
 
   describe "#revert" do
     it "matches braille to english characters" do
-      expect(reverterultra.revert).to eq("hi")
+      expect(reverterultra.revert).to eq("hi you")
     end
   end
 end
