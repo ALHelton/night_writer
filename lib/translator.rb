@@ -26,8 +26,6 @@ include Dictionary
 
   def lookup
     @message.chars.map do |character|
-      # check if valid character
-      # require 'pry'; binding.pry
       if character == " "
         DICTIONARY[:space]
       else
@@ -41,6 +39,7 @@ include Dictionary
     tier2 = [].join.concat("\n")
     tier3 = [].join.concat("\n")
     lookup.map do |letter|
+      require 'pry'; binding.pry
       divided = letter.split("\n")
       # require 'pry'; binding.pry
       

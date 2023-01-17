@@ -16,7 +16,6 @@ class Reverter
         string.scan(/.{2}/)
       end
     end.transpose
-    require 'pry'; binding.pry
 
     lookup_letters = []
     whole_letters.each do |letter|

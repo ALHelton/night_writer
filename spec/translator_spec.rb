@@ -18,17 +18,41 @@ RSpec.describe Translator do
     end
   end
 
-  describe "#valid_message" do
-    it "creates a valid message if valid_chars? is true" do
+  describe "#valid_chars?" do
+    it "takes a string of characters and determines if each contained in dictionary" do
       string1 = Translator.new("Hello")
       string2 = Translator.new("(@#*&")
 
-      string1.valid_message
-      string2.valid_message
+      expect(translatorultra.valid_chars?).to eq(true)
+      expect(string1.valid_chars?).to eq(true)
+      expect(string2.valid_chars?).to eq(false)
+    end
+  end
+  
+  describe "#valid_message" do
+  it "creates a valid message if valid_chars? is true" do
+    string1 = Translator.new("Hello")
+    string2 = Translator.new("(@#*&")
+    
+    string1.valid_message
+    string2.valid_message
+    expect(string1.message).to eq("Hello")
+    expect(string2.message).to eq("Please re-enter message using only A-Z keys.")
+  end 
+end
 
-      expect(string1.message).to eq("Hello")
-      expect(string2.message).to eq("Please re-enter message using only A-Z keys.")
-    end 
+  describe "#text_wrap" do
+    it "takes the message and splits every 80 characters" do
+      expect(translatormagnum.length).to eq(87)
+      expect(translatormagnum.text_wrap).to eq(["the quick brown fox jumps over the lazy dog the quick brown fox jumps over the l", "azy dog"])
+    end
+
+#     firstlines = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n"
+
+#     secondlines = "000.00\n.0.000\n..0..."
+
+#     expect(translatormagnum.text_wrap).to eq([firstlines, secondlines])
+#   end
   end
 
   describe "#lookup" do
@@ -61,29 +85,4 @@ RSpec.describe Translator do
       expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00")
     end
   end
-
-  describe "#valid_chars?" do
-    it "takes a string of characters and determines if each contained in dictionary" do
-      string1 = Translator.new("Hello")
-      string2 = Translator.new("(@#*&")
-
-      expect(translatorultra.valid_chars?).to eq(true)
-      expect(string1.valid_chars?).to eq(true)
-      expect(string2.valid_chars?).to eq(false)
-    end
-  end
-  # re_enter = "Please re-enter message using only A-Z keys."
-
-  # describe "#text_wrap" do
-  #   it "takes formatted text and sends it to a new line after 40 Braille characters" do
-  #     translatormagnum.translate
-
-  #     firstlines = ".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00..0.......0.00.000.0..0..0....00....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n\n"
-
-  #     secondlines = "000.00\n.0.000\n..0..."
-
-  #     expect(translatormagnum.text_wrap).to eq([firstlines, secondlines])
-  #   end
-  # end
-
 end
