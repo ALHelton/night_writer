@@ -8,22 +8,24 @@ class Reverter
   end
 
   def lookup_format
-    divided = @braille.split("\n")
-    nested_groups = divided.combination(1).to_a
 
+    divided = @braille.strip.split("\n")
+    nested_groups = divided.combination(1).to_a
+    
     whole_letters = nested_groups.flat_map do |group|
       line_groups = group.map do |string|
         string.scan(/.{2}/)
       end
     end.transpose
 
+    
     lookup_letters = []
     whole_letters.each do |letter|
-      lookup_letters << letter.join("\n")
+      lookup_letters << letter.join
     end
     lookup_letters
   end
-
+  
   def revert
     lookup_format.map do |character|
       DICTIONARY[character]

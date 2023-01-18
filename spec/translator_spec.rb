@@ -67,7 +67,7 @@ end
 
   describe "#translate" do
     it "takes new translated strings and joins them together" do
-      expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00")
+      expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00\n\n")
     end
   end
 
@@ -79,11 +79,4 @@ end
       expect(long_line.text_wrap).to eq("0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.\n................................................................................\n................................................................................\n\n0.0.0.0.0.\n..........\n..........\n\n")
     end
   end
-
-  # describe "#translate" do
-  #   it "takes new translated strings and joins them together" do
-  #     expect(translatorultra.translate).to eq("0..0..000.0.\n000....0.0..\n......000.00\n\n")
-  #   end
-  # end
-
 end
