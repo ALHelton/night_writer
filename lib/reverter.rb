@@ -16,8 +16,8 @@ class Reverter
       line_groups = group.map do |string|
         string.scan(/.{2}/)
       end
-    end.transpose
 
+    end.reject(&:empty?).transpose
     
     lookup_letters = []
     whole_letters.each do |letter|
